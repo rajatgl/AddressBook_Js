@@ -77,6 +77,19 @@ class Contact {
 }
 //ability to create new contact for address-book
 try{
-    let contact = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416005,8496942467,"glrajat")  //invalid email
+    let contact = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrajat")  //invalid email
     console.log(contact.toString())
 }catch(e){console.error(e)}
+
+//address-book array
+let addressBooks = new Array()
+let contact1 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrajat@xyz.com")
+let contact2 = new Contact("Rakshit","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
+
+//insert multiple contact into the address-book
+function insert(arr, ...items) {
+    arr.push(...items);
+}
+insert(addressBooks,contact1,contact2)
+console.log(addressBooks)
+
