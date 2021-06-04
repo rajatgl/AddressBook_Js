@@ -1,5 +1,4 @@
 class Contact {
-
     constructor(/*firstName,lastName,address,city,state,zip,phone,email*/...args) {
         this.firstName = args[0]
         this.lastName = args[1]
@@ -81,15 +80,41 @@ try{
     console.log(contact.toString())
 }catch(e){console.error(e)}
 
-//address-book array
-let addressBooks = new Array()
-let contact1 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrajat@xyz.com")
-let contact2 = new Contact("Rakshit","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
 
 //insert multiple contact into the address-book
 function insert(arr, ...items) {
     arr.push(...items);
 }
+
+//address-book array
+let addressBooks = new Array()
+try{
+    var contact1 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrajat@xyz.com")
+}catch(e){console.error("contact1: "+e)}
+try{
+    var contact2 = new Contact("Rakshit","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
+}catch(e){console.error("contact2: "+e)}
+
 insert(addressBooks,contact1,contact2)
+console.log("AddressBook: ")
 console.log(addressBooks)
+
+//function to check if contact exist
+function findContact(name){ 
+    const contact = addressBooks.find( addressbook  => addressbook.firstName === name )
+    if(contact == undefined){
+        throw "Contact not found"
+    }
+    else
+        return contact
+}
+
+//find and edit contact 
+try{
+    let contact = findContact("Rajat")
+    contact.phoneNumber = 8975755112
+    console.log(contact.toString())
+}catch(e){console.error(e)}
+
+
 
