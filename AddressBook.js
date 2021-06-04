@@ -87,7 +87,7 @@ function insert(arr, ...items) {
 }
 
 //address-book array
-let addressBooks = new Array()
+let addressBook = new Array()
 try{
     var contact1 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrajat@xyz.com")
 }catch(e){console.error("contact1: "+e)}
@@ -95,13 +95,13 @@ try{
     var contact2 = new Contact("Rakshit","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
 }catch(e){console.error("contact2: "+e)}
 
-insert(addressBooks,contact1,contact2)
+insert(addressBook,contact1,contact2)
 console.log("AddressBook: ")
-console.log(addressBooks)
+console.log(addressBook)
 
 //function to check if contact exist
 function findContact(name){ 
-    const contact = addressBooks.find( addressbook  => addressbook.firstName === name )
+    const contact = addressBook.find( addressbook  => addressbook.firstName === name )
     if(contact == undefined){
         throw "Contact not found"
     }
@@ -119,8 +119,14 @@ try{
 //find and delete contact using array splice
 try{
     let contact = findContact("Rakshit")
-    const index = addressBooks.indexOf(contact)
-    addressBooks.splice(index)
-    console.log(addressBooks)
+    const index = addressBook.indexOf(contact)
+    addressBook.splice(index)
+    console.log(addressBook)
 }catch(e){console.error(e)}
 
+//function to find number of contacts using array reduce
+function contactCount(){
+    const count = (accumulator) => { return accumulator + 1;}
+    return addressBook.reduce(count,0)
+}
+console.log("NUMBER_OF_CONTACTS: "+contactCount())
