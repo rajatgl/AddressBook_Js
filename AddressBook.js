@@ -130,3 +130,12 @@ function contactCount(){
     return addressBook.reduce(count,0)
 }
 console.log("NUMBER_OF_CONTACTS: "+contactCount())
+
+//prevent duplication
+let contact3 = new Contact('Mark', 'Galvin', 'Oldmarket', 'Pune', 'mahara', '411091', 8975755234, 'xyz@gmail.com')
+    if(!addressBook.some(contact => contact._firstName == "Mark"))
+        addressBook.push(contact3);
+    else
+      console.log("Contact already Exists!");
+
+    console.log("Array: ",addressBook);
