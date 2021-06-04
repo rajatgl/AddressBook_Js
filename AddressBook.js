@@ -116,5 +116,11 @@ try{
     console.log(contact.toString())
 }catch(e){console.error(e)}
 
-
+//find and delete contact using array splice
+try{
+    let contact = findContact("Rakshit")
+    const index = addressBooks.indexOf(contact)
+    addressBooks.splice(index)
+    console.log(addressBooks)
+}catch(e){console.error(e)}
 
