@@ -81,10 +81,15 @@ try{
 }catch(e){console.error(e)}
 
 
-//insert multiple contact into the address-book
+//insert multiple contact into the address-book and check for duplication
 function insert(arr, ...items) {
-    arr.push(...items);
-}
+    items.forEach(item => {
+        if(!addressBook.some(contact => contact.firstName == item.firstName))
+            arr.push(item)
+        else
+            return
+    })
+}  
 
 //address-book array
 let addressBook = new Array()
@@ -92,7 +97,7 @@ try{
     var contact1 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrajat@xyz.com")
 }catch(e){console.error("contact1: "+e)}
 try{
-    var contact2 = new Contact("Rakshit","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
+    var contact2 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
 }catch(e){console.error("contact2: "+e)}
 
 insert(addressBook,contact1,contact2)
@@ -132,10 +137,10 @@ function contactCount(){
 console.log("NUMBER_OF_CONTACTS: "+contactCount())
 
 //prevent duplication
-let contact3 = new Contact('Mark', 'Galvin', 'Oldmarket', 'Pune', 'mahara', '411091', 8975755234, 'xyz@gmail.com')
-    if(!addressBook.some(contact => contact._firstName == "Mark"))
-        addressBook.push(contact3);
-    else
-      console.log("Contact already Exists!");
+// let contact3 = new Contact('Mark', 'Galvin', 'Oldmarket', 'Pune', 'mahara', '411091', 8975755234, 'xyz@gmail.com')
+//     if(!addressBook.some(contact => contact._firstName == "Mark"))
+//         addressBook.push(contact3);
+//     else
+//       console.log("Contact already Exists!");
 
-    console.log("Array: ",addressBook);
+//     console.log("Array: ",addressBook);
