@@ -99,8 +99,14 @@ try{
 try{
     var contact2 = new Contact("Rakshit","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
 }catch(e){console.error("contact2: "+e)}
+try{
+    var contact3 = new Contact("Prabha","Gundi","zoppur,mahadox","kolha","Maharashtra",416004,8496942790,"glpra@xyz.com")
+}catch(e){console.error("contact2: "+e)}
+try{
+    var contact4 = new Contact("Lux","Gundi","zoppur,mahadox","rajendra","Maharashtra",416004,8496942440,"glluxt@xyz.com")
+}catch(e){console.error("contact2: "+e)}
 
-insert(addressBook,contact1,contact2)
+insert(addressBook,contact1,contact2,contact3,contact4)
 console.log("AddressBook: ")
 console.log(addressBook)
 
@@ -121,11 +127,13 @@ try{
     console.log(contact.toString())
 }catch(e){console.error(e)}
 
+console.log("NUMBER_OF_CONTACTS: "+contactCount())
+
 //find and delete contact using array splice
 try{
     let contact = findContact("Rakshit")
     const index = addressBook.indexOf(contact)
-    addressBook.splice(index)
+    addressBook.splice(index,1)
     console.log(addressBook)
 }catch(e){console.error(e)}
 
@@ -141,11 +149,19 @@ console.log("NUMBER_OF_CONTACTS: "+contactCount())
 function findContactsByCity(city){
     console.log(addressBook.filter(contact => contact._city == city))
 }
-findContactsByCity("kopa") //returns 2 contacts
+findContactsByCity("kopa") //returns 1 contacts
 
 //count contacts by city/state
 function contactCountByRegion(name){
     const countByRegion = (accumulator) => { return accumulator + 1;}
     return addressBook.filter(contact => contact._city==name||contact._state==name).reduce(countByRegion,0)
 }
-console.log("NUMBER_OF_CONTACTS_IN_CITY: "+contactCountByRegion("kopa"))
+console.log("NUMBER_OF_CONTACTS_IN_CITY: "+contactCountByRegion("kopa")) //count = 1
+
+
+function sortContacts(){
+    var sortedArray = addressBook.sort((a, b) => (a._firstName > b._firstName) ? -1 : 1)
+    console.log("Sorted Contacts: ")
+    console.log(sortedArray)
+}
+sortContacts() //descending order by first-name
