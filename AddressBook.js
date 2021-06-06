@@ -97,7 +97,7 @@ try{
     var contact1 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrajat@xyz.com")
 }catch(e){console.error("contact1: "+e)}
 try{
-    var contact2 = new Contact("Rajat","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
+    var contact2 = new Contact("Rakshit","Gundi","zoppur,mahadox","kopa","Maharashtra",416004,8496942465,"glrakshit@xyz.com")
 }catch(e){console.error("contact2: "+e)}
 
 insert(addressBook,contact1,contact2)
@@ -122,12 +122,12 @@ try{
 }catch(e){console.error(e)}
 
 //find and delete contact using array splice
-try{
-    let contact = findContact("Rakshit")
-    const index = addressBook.indexOf(contact)
-    addressBook.splice(index)
-    console.log(addressBook)
-}catch(e){console.error(e)}
+// try{
+//     let contact = findContact("Rakshit")
+//     const index = addressBook.indexOf(contact)
+//     addressBook.splice(index)
+//     console.log(addressBook)
+// }catch(e){console.error(e)}
 
 //function to find number of contacts using array reduce
 function contactCount(){
@@ -136,11 +136,7 @@ function contactCount(){
 }
 console.log("NUMBER_OF_CONTACTS: "+contactCount())
 
-//prevent duplication
-// let contact3 = new Contact('Mark', 'Galvin', 'Oldmarket', 'Pune', 'mahara', '411091', 8975755234, 'xyz@gmail.com')
-//     if(!addressBook.some(contact => contact._firstName == "Mark"))
-//         addressBook.push(contact3);
-//     else
-//       console.log("Contact already Exists!");
-
-//     console.log("Array: ",addressBook);
+function findContactsByCity(city){
+    console.log(addressBook.filter(contact => contact._city == city))
+}
+findContactsByCity("kopa") //returns 2 contacts
