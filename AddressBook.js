@@ -136,6 +136,7 @@ function contactCount(){
 }
 console.log("NUMBER_OF_CONTACTS: "+contactCount())
 
+//find and view contacts by city
 function findContactsByCity(city){
     console.log(addressBook.filter(contact => contact._city == city))
 }
