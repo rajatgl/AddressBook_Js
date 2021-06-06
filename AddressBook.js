@@ -122,17 +122,18 @@ try{
 }catch(e){console.error(e)}
 
 //find and delete contact using array splice
-// try{
-//     let contact = findContact("Rakshit")
-//     const index = addressBook.indexOf(contact)
-//     addressBook.splice(index)
-//     console.log(addressBook)
-// }catch(e){console.error(e)}
+try{
+    let contact = findContact("Rakshit")
+    const index = addressBook.indexOf(contact)
+    addressBook.splice(index)
+    console.log(addressBook)
+}catch(e){console.error(e)}
 
 //function to find number of contacts using array reduce
 function contactCount(){
     const count = (accumulator) => { return accumulator + 1;}
-    return addressBook.reduce(count,0)
+    const NUMBER_OF_CONTACTS = addressBook.reduce(count,0)
+    return NUMBER_OF_CONTACTS
 }
 console.log("NUMBER_OF_CONTACTS: "+contactCount())
 
@@ -141,3 +142,10 @@ function findContactsByCity(city){
     console.log(addressBook.filter(contact => contact._city == city))
 }
 findContactsByCity("kopa") //returns 2 contacts
+
+//count contacts by city/state
+function contactCountByRegion(name){
+    const countByRegion = (accumulator) => { return accumulator + 1;}
+    return addressBook.filter(contact => contact._city==name||contact._state==name).reduce(countByRegion,0)
+}
+console.log("NUMBER_OF_CONTACTS_IN_CITY: "+contactCountByRegion("kopa"))
