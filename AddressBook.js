@@ -158,10 +158,32 @@ function contactCountByRegion(name){
 }
 console.log("NUMBER_OF_CONTACTS_IN_CITY: "+contactCountByRegion("kopa")) //count = 1
 
-
-function sortContacts(){
+//sort by name
+function sortByName(){
     var sortedArray = addressBook.sort((a, b) => (a._firstName > b._firstName) ? -1 : 1)
     console.log("Sorted Contacts: ")
     console.log(sortedArray)
 }
-sortContacts() //descending order by first-name
+sortByName() //descending order by first-name
+
+//sort by city
+function sortByCity(){
+    var sortedArray = addressBook.sort((a, b) => (a._city > b._city) ? -1 : 1)
+    console.log("Sorted Contacts: ")
+    console.log(sortedArray)
+}
+
+//sort by state
+function sortByState(){
+    var sortedArray = addressBook.sort((a, b) => (a._state > b._state) ? -1 : 1)
+    console.log("Sorted Contacts: ")
+    console.log(sortedArray)
+}
+
+//sort by zip
+function sortByZIP(){
+    var sortedArray = addressBook.sort((a, b) => (a._zip > b._zip) ? -1 : 1)
+    console.log("Sorted Contacts: ")
+    console.log(sortedArray)
+}
+
